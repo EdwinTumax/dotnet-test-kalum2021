@@ -1,28 +1,38 @@
-using System.Collections.ObjectModel;
+using System;
 using System.ComponentModel;
+using System.Windows.Input;
 using Kalum2021.Models;
+
 namespace Kalum2021.ModelView
 {
-    public class UsuarioViewModel : INotifyPropertyChanged
+    public class UsuarioViewModel : INotifyPropertyChanged, ICommand
     {
-        public ObservableCollection<Usuarios> usuarios {get;set;}
+        public UsuarioViewModel Instancia {get;set;}        
+        public UsuariosViewModel UsuariosViewModel {get;set;} 
+        public string Apellidos {get;set;}
+        public string Nombres {get;set;}
+        public string Email {get;set;}
+        public string Username {get;set;}
+        public string Password {get;set;}
         public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler CanExecuteChanged;
 
-        public UsuarioViewModel()
+        public UsuarioViewModel(UsuariosViewModel UsuariosViewModel)
         {
-            this.usuarios = new ObservableCollection<Usuarios>();
-            this.usuarios.Add(new Usuarios(1,"etumax",true,"Edwin Rolando","Tumax Chaclan", "etumax@gmail.com"));
-            this.usuarios.Add(new Usuarios(2,"nperez",true,"Nancy Elizabeth","Perez Carcamo", "eperez@gmail.com"));
-            this.usuarios.Add(new Usuarios(3,"caquino",true,"Cesar Agusto","Aquino Gaitan", "caquino@gmail.com"));
+            this.Instancia = this;
+            this.UsuariosViewModel = UsuariosViewModel;
+        }
+        public bool CanExecute(object parametros)
+        {
+            return true;
         }
 
-        public void NotificarCambio(string propiedad)
+        public void Execute(object parametro)
         {
-            if(PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propiedad));
-            }
+            if(parametro.Equals("Guardar")){
+                Usuarios nuevo = new Usuarios(100,Username,true,Nombres,Apellidos,Email);
+                this.UsuariosViewModel.agregarElemento(nuevo);
+            }   
         }
-
     }
 }
