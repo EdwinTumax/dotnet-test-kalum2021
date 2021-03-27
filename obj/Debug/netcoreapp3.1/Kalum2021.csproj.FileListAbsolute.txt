@@ -23,3 +23,10 @@ C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3
 C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\RoleView.baml
 C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\UsuarioView.g.cs
 C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\UsuarioView.baml
+C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netcoreapp3.1\ControlzEx.dll
+C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netcoreapp3.1\MahApps.Metro.dll
+C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netcoreapp3.1\Microsoft.Xaml.Behaviors.dll
+C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\bin\Debug\netcoreapp3.1\de\MahApps.Metro.resources.dll
+C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\App.baml
+C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Kalum2021.csproj.CopyComplete

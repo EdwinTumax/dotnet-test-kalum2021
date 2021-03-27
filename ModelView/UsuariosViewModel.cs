@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Input;
 using Kalum2021.Models;
 using Kalum2021.Views;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace Kalum2021.ModelView
 {
@@ -18,9 +19,11 @@ namespace Kalum2021.ModelView
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
 
-        public UsuariosViewModel()
+        private IDialogCoordinator dialogCoordinator;
+        public UsuariosViewModel(IDialogCoordinator instance)
         {
             this.Instancia = this;
+            this.dialogCoordinator = instance;
             this.usuarios = new ObservableCollection<Usuarios>();
             this.usuarios.Add(new Usuarios(1,"etumax",true,"Edwin Rolando","Tumax Chaclan", "etumax@gmail.com"));
             this.usuarios.Add(new Usuarios(2,"nperez",true,"Nancy Elizabeth","Perez Carcamo", "eperez@gmail.com"));
@@ -44,17 +47,42 @@ namespace Kalum2021.ModelView
             return true;
         }
 
-        public void Execute(object parametro)
+        public async void Execute(object parametro)
         {
-            if(parametro.Equals("Nuevo")){
+            if(parametro.Equals("Nuevo"))
+            {
+                this.Seleccionado = null;
                 UsuarioView nuevoUsuario = new UsuarioView(Instancia);
                 nuevoUsuario.Show();                
-            }else if (parametro.Equals("Eliminar")){
-                if(this.Seleccionado == null){
-                    MessageBox.Show("Debe seleccionar un elemento");
-                } else {
-                    this.usuarios.Remove(Seleccionado);
+            }
+            else if (parametro.Equals("Eliminar"))
+            {
+                if(this.Seleccionado == null)
+                {
+                    await this.dialogCoordinator.ShowMessageAsync(this,"Usuarios","Debe seleccionar un elemento",MessageDialogStyle.Affirmative);
+                } 
+                else
+                {                        
+                    MessageDialogResult respuesta = await this.dialogCoordinator.ShowMessageAsync(this,
+                        "Eliminar usuario","Esta seguro de eliminar el registor?",
+                        MessageDialogStyle.AffirmativeAndNegative);
+                    if(respuesta == MessageDialogResult.Affirmative)
+                    {
+                        this.usuarios.Remove(Seleccionado);
+                    }
                 }
+            }
+            else if(parametro.Equals("Modificar"))
+            {
+                if(this.Seleccionado == null)
+                {
+                    await this.dialogCoordinator.ShowMessageAsync(this,"Usuarios","Debe seleccionar un elemento",MessageDialogStyle.Affirmative);
+                } 
+                else
+                {
+                    UsuarioView modificarUsuario = new UsuarioView(Instancia);
+                    modificarUsuario.ShowDialog();
+                }   
             }
         }
     }
