@@ -1,0 +1,39 @@
+<mah:MetroWindow x:Class="Kalum2021.Views.AlumnosView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+        Dialog:DialogParticipation.Register="{Binding}"
+        xmlns:local="clr-namespace:Kalum2021"
+        mc:Ignorable="d"
+        Title="Lista de Alumnos" WindowStartupLocation="CenterScreen" Height="450" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height ="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Margin="10" ColumnWidth= "*" CanUserAddRows = "False" SelectedItem = "{Binding Seleccionado}" Grid.Row = "0" Grid.Column = "0" ItemsSource = "{Binding Alumnos}" AutoGenerateColumns = "false">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                            EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                            Header="Seleccionar"
+                            Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}" />
+                <DataGridTextColumn Binding="{Binding Carne}" Header="Carné" IsReadOnly="true"/>
+                <DataGridTextColumn Binding="{Binding NoExpediente}" Header="Expediente" IsReadOnly="true"/>
+                <DataGridTextColumn Binding="{Binding Apellidos}" Header="Apellidos" IsReadOnly="true"/> 
+                <DataGridTextColumn Binding="{Binding Nombres}" Header="Nombres" IsReadOnly="true"/>                
+                <DataGridTextColumn Binding="{Binding Email}" Header="Email" IsReadOnly="true" Width="250"/>
+            </DataGrid.Columns>               
+        </DataGrid>
+        <StackPanel Grid.Row = "1" Grid.Column = "0" Orientation="Horizontal" >
+            <Button Content="Nuevo" Command="{Binding Instancia}" CommandParameter="Nuevo" Margin = "5" />
+            <Button Content="Eliminar" Command="{Binding Instancia}" CommandParameter ="Eliminar" Margin = "5"/>     
+            <Button Content="Modificar" Command="{Binding Instancia}" CommandParameter = "Modificar" Margin = "5" />  
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

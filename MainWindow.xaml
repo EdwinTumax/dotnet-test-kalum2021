@@ -21,6 +21,7 @@
                     <MenuItem Header="Catálogos">
                         <MenuItem Header="Usuarios" Command="{Binding Instancia}" CommandParameter="Usuarios"/>
                         <MenuItem Header="Roles" Command="{Binding Instancia}" CommandParameter="Roles"/>
+                        <MenuItem Header="Alumnos" Command="{Binding Instancia}" CommandParameter="Alumnos"/>
                         <MenuItem Header="Reportes"/>
                     </MenuItem>
                     <Separator/>

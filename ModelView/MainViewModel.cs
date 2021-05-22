@@ -35,6 +35,11 @@ namespace Kalum2021.ModelView
                 RoleView ventanaRoles = new RoleView();
                 ventanaRoles.ShowDialog();
             }
+            else if(parametro.Equals("Alumnos"))
+            {
+                AlumnosView ventanaAlumnos = new AlumnosView();
+                ventanaAlumnos.ShowDialog();
+            }
         }
     }
 }
