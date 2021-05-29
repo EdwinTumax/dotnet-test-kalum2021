@@ -40,6 +40,11 @@ namespace Kalum2021.ModelView
                 AlumnosView ventanaAlumnos = new AlumnosView();
                 ventanaAlumnos.ShowDialog();
             }
+            else if(parametro.Equals("Clases"))
+            {   
+                ClasesView clasesView = new ClasesView();
+                clasesView.ShowDialog();
+            }
         }
     }
 }

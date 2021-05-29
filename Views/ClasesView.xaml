@@ -1,0 +1,71 @@
+<mah:MetroWindow x:Class="Kalum2021.Views.ClasesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+        Dialog:DialogParticipation.Register="{Binding}"
+        xmlns:local="clr-namespace:Kalum2021"
+        mc:Ignorable="d"
+        Title="Lista de Clases" WindowStartupLocation="CenterScreen" Height="450" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height ="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Margin="10" ColumnWidth= "*" CanUserAddRows = "False" SelectedItem = "{Binding Seleccionado}" Grid.Row = "0" Grid.Column = "0" ItemsSource = "{Binding Clases}" AutoGenerateColumns = "false">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                            EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                            Header="Seleccionar"
+                            Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}" />
+                <DataGridTextColumn Binding="{Binding Descripcion}" Header="Descripción" IsReadOnly="true"/>
+                <DataGridTextColumn Binding="{Binding CarreraTecnica.Nombre}" Header="Carrera" IsReadOnly="true"/>
+                <DataGridTextColumn Binding="{Binding Salon.NombreSalon}" Header="Salon" IsReadOnly="true"/>                
+                <DataGridTextColumn Binding="{Binding Ciclo}" Header="Ciclo" IsReadOnly="true"/>
+                <DataGridTemplateColumn Header="Horario">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Horario.HorarioInicio,StringFormat=hh\\:mm}"/>
+                                <TextBlock Text=" - "/>
+                                <TextBlock Text="{Binding Horario.HorarioFinal,StringFormat=hh\\:mm}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>  
+                <DataGridTemplateColumn Header="Cupo">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding CupoMaximo}"/>
+                                <TextBlock Text=" - "/>
+                                <TextBlock Text="{Binding CupoMinimo}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>  
+                <DataGridTemplateColumn Header="Instructor">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Instructor.Apellidos}"/>
+                                <TextBlock Text=" "/>
+                                <TextBlock Text="{Binding  Instructor.Nombres}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>  
+            </DataGrid.Columns>              
+        </DataGrid>
+        <StackPanel Grid.Row = "1" Grid.Column = "0" Orientation="Horizontal" >
+            <Button Content="Nuevo" Command="{Binding Instancia}" CommandParameter="Nuevo" Margin = "5" />
+            <Button Content="Eliminar" Command="{Binding Instancia}" CommandParameter ="Eliminar" Margin = "5"/>     
+            <Button Content="Modificar" Command="{Binding Instancia}" CommandParameter = "Modificar" Margin = "5" />  
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

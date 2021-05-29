@@ -79,3 +79,7 @@ C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3
 C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\AlumnosView.baml
 C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\AlumnoView.g.cs
 C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\AlumnoView.baml
+C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\ClasesView.g.cs
+C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\ClasesView.baml
+C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\ClaseView.g.cs
+C:\Users\Developer\Documents\2021\Kinal\NET\prod\Kalum2021\obj\Debug\netcoreapp3.1\Views\ClaseView.baml
