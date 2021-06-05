@@ -53,12 +53,25 @@ namespace Kalum2021.ModelView
             return true;
         }
 
-        public void Execute(object parametro)
+        public async void Execute(object parametro)
         {
+
             if(parametro.Equals("Nuevo"))
             {
                 ClaseView ventanaClase = new ClaseView(this.Instancia); 
                 ventanaClase.ShowDialog();
+            }
+            else if( parametro.Equals("Modificar")) 
+            {
+                if(this.Seleccionado == null)
+                {
+                    await this.DialogCoordinator.ShowMessageAsync(this,"Clases","Debe seleccionar una Clase",MessageDialogStyle.Affirmative);
+                }
+                else
+                {
+                    ClaseView ventanaClase = new ClaseView(this.Instancia); 
+                    ventanaClase.ShowDialog();
+                }
             }
         }
     }

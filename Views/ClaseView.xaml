@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kalum2021"
         mc:Ignorable="d"
-        Title="{Binding Titulo}" Height="300" Width="800" WindowStartupLocation="CenterScreen" Name="FrmClase">
+        Title="{Binding Titulo}" Height="400" Width="800" WindowStartupLocation="CenterScreen" Name="FrmClase">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height = "30"/>
@@ -25,21 +25,21 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>       
         <Label Content="Descripción" Grid.Row = "0" Grid.Column ="0"/>
-        <TextBox Grid.Row = "0" Margin="0,5,0,0"  Grid.Column = "1" Text="{Binding Descripcion}" IsReadOnly="True"/>
+        <TextBox Grid.Row = "0" Margin="0,5,0,0"  Grid.Column = "1" Text="{Binding ValorDescripcion}"/>
         <Label Content="Ciclo" Grid.Row = "1" Grid.Column ="0"/>
-        <ComboBox Grid.Row = "1" Margin="0,5,0,0" Grid.Column = "1" ItemsSource="{Binding Ciclos}"/>
+        <ComboBox IsEditable="True" Grid.Row = "1" Margin="0,5,0,0" Grid.Column = "1" ItemsSource="{Binding Ciclos}" SelectedValue = "{Binding ValorCiclo}" Text="{Binding ValorCiclo}"/>
         <Label Content="Cupo Maximo"  Grid.Row = "2" Grid.Column ="0"/>
-        <ComboBox Grid.Row = "2" Margin="0,5,0,0" Grid.Column = "1" ItemsSource="{Binding CupoMaximo}"/>
+        <ComboBox IsEditable="True" Grid.Row = "2" Margin="0,5,0,0" Grid.Column = "1" ItemsSource="{Binding CupoMaximo}" SelectedValue = "{Binding ValorCupoMaximo}" Text = "{Binding ValorCupoMaximo}"/>
         <Label Content="Cupo Minimo"  Grid.Row = "3" Grid.Column ="0"/>
-        <ComboBox Grid.Row = "3" Margin="0,5,0,0" Grid.Column = "1" ItemsSource="{Binding CupoMinimo}"/>
+        <ComboBox IsEditable="True" Grid.Row = "3" Margin="0,5,0,0" Grid.Column = "1" ItemsSource="{Binding CupoMinimo}" SelectedValue = "{Binding ValorCupoMinimo}" Text = "{Binding ValorCupoMinimo}"/>
         <Label Content="Carrera" Grid.Row = "4" Grid.Column ="0"/>
-        <ComboBox Margin="0,5,0,0" Grid.Row = "4" Grid.Column = "1" ItemsSource="{Binding CarrerasTecnicas}"/>
+        <ComboBox Margin="0,5,0,0" Grid.Row = "4" Grid.Column = "1" ItemsSource="{Binding CarrerasTecnicas}" SelectedItem = "{Binding CarreraTecnicaSeleccionada}" IsEditable="True" IsReadOnly="True" Text="{Binding CarreraTecnicaDefinido}"/>
         <Label Content="Instructor" Grid.Row = "5" Grid.Column ="0"/>
-        <ComboBox Margin="0,5,0,0" Grid.Row = "5" Grid.Column = "1" ItemsSource="{Binding Instructores}"/>
+        <ComboBox Margin="0,5,0,0" Grid.Row = "5" Grid.Column = "1" ItemsSource="{Binding Instructores}" SelectedItem = "{Binding InstructorSeleccionado}" IsEditable="True" IsReadOnly="True" Text="{Binding InstructorDefinido}"/>
         <Label Content="Salon" Grid.Row = "6" Grid.Column ="0"/>
-        <ComboBox Margin="0,5,0,0" Grid.Row = "6" Grid.Column = "1" ItemsSource="{Binding Salones}"/>
+        <ComboBox Margin="0,5,0,0" Grid.Row = "6" Grid.Column = "1" ItemsSource="{Binding Salones}" SelectedItem = "{Binding SalonSeleccionado}" IsEditable="True" IsReadOnly="True" Text="{Binding SalonDefinido}"/>
         <Label Content="Horario" Grid.Row = "7" Grid.Column ="0"/>
-        <ComboBox Margin="0,5,0,0" Grid.Row = "7" Grid.Column = "1" ItemsSource="{Binding Horarios}"/>
+        <ComboBox Margin="0,5,0,0" Grid.Row = "7" Grid.Column = "1" ItemsSource="{Binding Horarios}" SelectedItem = "{Binding HorarioSeleccionado}" IsEditable="True" IsReadOnly="True" Text="{Binding HorarioDefinido}"/>
         <DockPanel Margin="5" Grid.Row = "8" Grid.ColumnSpan="2">
             <Button Width="200" HorizontalAlignment="Right" Content="Guardar" Command="{Binding Instancia}" CommandParameter="Guardar"/>
         </DockPanel>
